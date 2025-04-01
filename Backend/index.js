@@ -12,7 +12,7 @@ dotenv.config();  // Load environment variables from the .env file
 
 const app = express();
 app.use(cors())
-const PORT = 4000;
+const PORT =process.env.PORT || 4000;
 
 
 
@@ -29,8 +29,8 @@ app.use('/product',productRoutes)
 app.use('/uploads',express.static('uploads'))
 
 // Additional route
-app.use('/home', (req, res) => {
-  res.send("<h1>Welcome to Sekhar</h1>");
+app.use('/', (req, res) => {
+  res.send("<h1>Welcome to Sekhar's FoodApp</h1>");
 });
 
 // Start server
